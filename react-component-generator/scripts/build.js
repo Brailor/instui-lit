@@ -97,7 +97,7 @@ async function createComponentFile(elementDeclaration, events) {
     import {createComponent} from '@lit-labs/react';
     import {${elementDeclaration.name} as ${
     elementDeclaration.name
-  }Component } from 'brailor-lit-instui/dist/components/${
+  }Component } from '${rootPackageJson.name}/dist/components/${
     elementDeclaration.tagName
   }';
 

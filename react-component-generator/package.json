@@ -1,6 +1,6 @@
 {
-  "name": "instui-wc-react",
-  "version": "0.0.3",
+  "name": "react-component-generator",
+  "private": true,
   "scripts": {
     "build": "node scripts/build.js"
   },

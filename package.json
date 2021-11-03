@@ -1,5 +1,5 @@
 {
-  "name": "brailor-lit-instui",
+  "name": "instui-lit",
   "private": false,
   "version": "0.0.3",
   "description": "A simple web component",
@@ -8,7 +8,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "workspaces": [
-    "react"
+    "react-component-generator"
   ],
   "scripts": {
     "build": "tsc",
