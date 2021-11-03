@@ -1,7 +1,7 @@
 
     import React from 'react';
     import {createComponent} from '@lit-labs/react';
-    import {MyElement as MyElementComponent } from 'brailor-lit-instui/dist/components/my-element/index';
+    import {MyElement as MyElementComponent } from 'brailor-lit-instui/dist/components/my-element';
 
     export const MyElement = createComponent(
         React,

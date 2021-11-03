@@ -5,10 +5,36 @@ const fs = require('fs/promises');
 const {execSync} = require('child_process');
 const process = require('process');
 
-async function copyTemplate() {
-  const tmpPackageJson = await fs.readFile(path.resolve('../tmp/package.json'));
+const rootPackageJson = require('../../package.json');
+const thisPackageJson = require('../build/package.json');
+async function checkPackageversion() {
+  if (rootPackageJson.version !== thisPackageJson.version) {
+    console.warn(`
+    Dependecy mismatch!
+    -------------------
+    Root package - ${rootPackageJson.name} and this package - ${thisPackageJson.name} versions
+    are not the same!
 
-  await fs.writeFile('package.json', tmpPackageJson, 'utf-8');
+    You should fix this!!!
+    `);
+
+    process.exit(1);
+  }
+  if (
+    thisPackageJson.peerDependencies[rootPackageJson.name] !==
+    rootPackageJson.version
+  ) {
+    console.warn(`
+      The peerdependency version for: ${rootPackageJson.name} is not correct.
+      Currently its set to: ${
+        thisPackageJson.peerDependencies[rootPackageJson.name]
+      },
+      but it should be ${rootPackageJson.version}.
+      You should fix this!!!
+    `);
+
+    process.exit(1);
+  }
 }
 async function cleanDir() {
   const buildDir = path.resolve('build');
@@ -73,7 +99,7 @@ async function createComponentFile(elementDeclaration, events) {
     elementDeclaration.name
   }Component } from 'brailor-lit-instui/dist/components/${
     elementDeclaration.tagName
-  }/index';
+  }';
 
     export const ${elementDeclaration.name} = createComponent(
         React,
@@ -92,7 +118,7 @@ async function createComponentFile(elementDeclaration, events) {
 
 (async () => {
   await cleanDir();
-  // await copyTemplate();
+  await checkPackageversion();
   execSync('npm i');
   await run();
 })();
