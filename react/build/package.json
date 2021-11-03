@@ -1,6 +1,6 @@
 {
   "name": "instui-wc-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "module": "dist/index.js",
   "main": "dist/index.js",
@@ -16,6 +16,6 @@
   },
   "peerDependencies": {
     "react": "*",
-    "brailor-lit-instui": "0.0.2"
+    "brailor-lit-instui": "0.0.3"
   }
 }
