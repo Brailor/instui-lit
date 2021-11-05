@@ -8,7 +8,8 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "workspaces": [
-    "react-component-generator"
+    "react-component-generator",
+    "testing/*"
   ],
   "scripts": {
     "build": "tsc",
@@ -22,8 +23,8 @@
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/my-element.bundled.js",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
+    "docs:build": "node esbuild.cjs",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/components/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/components/**/*.ts\" --watch",
@@ -34,7 +35,7 @@
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c "
   },
   "keywords": [
     "web-components",
@@ -67,6 +68,7 @@
     "@web/test-runner-playwright": "^0.8.4",
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "deepmerge": "^4.2.2",
+    "esbuild": "^0.13.12",
     "eslint": "^7.32.0",
     "lit-analyzer": "^1.1.10",
     "mocha": "^9.1.1",

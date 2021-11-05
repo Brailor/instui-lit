@@ -7,6 +7,11 @@ const process = require('process');
 
 const rootPackageJson = require('../../package.json');
 const thisPackageJson = require('../build/package.json');
+
+const [, , $3 = ''] = process.argv;
+
+const shouldPublish = $3 === 'publish';
+
 async function checkPackageversion() {
   if (rootPackageJson.version !== thisPackageJson.version) {
     console.warn(`
@@ -121,4 +126,8 @@ async function createComponentFile(elementDeclaration, events) {
   await checkPackageversion();
   execSync('npm i');
   await run();
+
+  if (shouldPublish) {
+    execSync('npm publish');
+  }
 })();
