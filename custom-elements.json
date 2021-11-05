@@ -17,10 +17,120 @@
         },
         {
           "kind": "js",
-          "name": "*",
+          "name": "ToggleGroup",
           "declaration": {
-            "name": "*",
-            "package": "./toggle-details"
+            "name": "ToggleGroup",
+            "module": "./toggle-group"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/toggle-group/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Very basic toggle group component.",
+          "name": "ToggleGroup",
+          "slots": [
+            {
+              "description": "detail for the toggle detail goes into the slot",
+              "name": "the"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "summary"
+            },
+            {
+              "kind": "field",
+              "name": "toggled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "toggled",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "_click",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderIcon",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "renderDetails",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "toggle",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "fires when the toggle group toggles"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "summary",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "summary"
+            },
+            {
+              "name": "toggled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "toggled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "inst-toggle-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ToggleGroup",
+          "declaration": {
+            "name": "ToggleGroup",
+            "module": "src/components/toggle-group/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "inst-toggle-group",
+          "declaration": {
+            "name": "ToggleGroup",
+            "module": "src/components/toggle-group/index.ts"
           }
         }
       ]
@@ -158,116 +268,6 @@
           "declaration": {
             "name": "MyElement",
             "module": "src/components/my-element/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/toggle-details/index.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Very basic toggle details component.",
-          "name": "ToggleGroup",
-          "slots": [
-            {
-              "description": "detail for the toggle detail goes into the slot",
-              "name": "the"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "summary",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "summary"
-            },
-            {
-              "kind": "field",
-              "name": "toggled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "toggled",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "_click",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "PointerEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderIcon",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "renderDetails",
-              "privacy": "private"
-            }
-          ],
-          "events": [
-            {
-              "name": "toggle",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "fires when the toggle group toggles"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "summary",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "summary"
-            },
-            {
-              "name": "toggled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "toggled"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "inst-toggle-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ToggleGroup",
-          "declaration": {
-            "name": "ToggleGroup",
-            "module": "src/components/toggle-details/index.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "inst-toggle-group",
-          "declaration": {
-            "name": "ToggleGroup",
-            "module": "src/components/toggle-details/index.ts"
           }
         }
       ]
