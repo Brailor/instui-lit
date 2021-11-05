@@ -97,14 +97,15 @@ async function run() {
 }
 
 async function createComponentFile(elementDeclaration, events) {
+  const componentDirName = elementDeclaration.tagName.replace(/^(inst-)/, '');
   const s = `
     import React from 'react';
     import {createComponent} from '@lit-labs/react';
     import {${elementDeclaration.name} as ${
     elementDeclaration.name
-  }Component } from '${rootPackageJson.name}/dist/components/${
-    elementDeclaration.tagName
-  }';
+  }Component } from '${
+    rootPackageJson.name
+  }/dist/components/${componentDirName}';
 
     export const ${elementDeclaration.name} = createComponent(
         React,
@@ -128,6 +129,7 @@ async function createComponentFile(elementDeclaration, events) {
   await run();
 
   if (shouldPublish) {
+    console.info(`Publishing...`);
     execSync('npm publish');
   }
 })();
