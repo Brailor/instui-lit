@@ -1,6 +1,6 @@
 {
   "name": "instui-lit-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "module": "dist/index.js",
   "main": "dist/index.js",
@@ -16,6 +16,6 @@
   },
   "peerDependencies": {
     "react": "*",
-    "instui-lit": "0.0.3"
+    "instui-lit": "0.0.4"
   }
 }
